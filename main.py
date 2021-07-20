@@ -38,16 +38,42 @@ while True:
     print("Add your worktime for today")
     project_name = input("Which project you worked today on?")
     task_explanation = input("What did you do today?")
-    startingday= input("When did you start today? format: YYYYMMDDHHMM")
-    #endingday= input("When did you end today? format: YYYYMMDDHHMM")
-    task_started_year= int(startingday[:4]
-    task_started_month = startingday[4:6]
-    task_started_day = startingday[6:8]
-    task_started_hour = startingday[8:10]
-    task_started_minutes = startingday[10:]
-    print(startingday)
+
+    while True:
+        startingtime= input("When did you start today? format: YYYYMMDDHHMM")
+        if len(startingtime) != 12:
+            print("You did not put the starting time in correct format. Put it as YYYYMMDDHHMM ex. 202112241805")
+        else:
+            break
+
+    while True:
+        endingday= input("When did you end today? format: YYYYMMDDHHMM")
+        if len(endingday) != 12:
+            print("You did not put the starting time in correct format. Put it as YYYYMMDDHHMM ex. 202112241805")
+        else:
+            break
+    
+
+    task_started_year = startingtime[:4]
+    task_started_month = startingtime[4:6]
+    task_started_day = startingtime[6:8]
+    task_started_hour = startingtime[8:10]
+    task_started_minutes = startingtime[10:]
+
+    task_ended_year = endingday[:4]
+    task_ended_month = endingday[4:6]
+    task_ended_day = endingday[6:8]
+    task_ended_hour = endingday[8:10]
+    task_ended_minutes = endingday[10:]
+
+    print(endingday)
+    print(task_ended_hour)
+
+    print(startingtime)
+    print(task_ended_hour)
     print(task_started_year,task_started_month, task_started_day, task_ended_hour,task_started_minutes)
-    doIcontinue = input("Do you want to continue? Answer yes or no").lower()
+    doIcontinue = input("Do you want to continue? Answer yes or no ").lower()
+
     if doIcontinue == "no":
         break
 
