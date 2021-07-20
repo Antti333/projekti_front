@@ -1,0 +1,15 @@
+--taulukon luonti halutuilla sarakkeilla
+
+CREATE TABLE testilog (
+	id SERIAL PRIMARY KEY,
+	project varchar ( 255 ) NOT NULL,
+	action varchar ( 255 ) NOT NULL,
+	started timestamp NOT NULL,
+	ended timestamp NOT NULL,
+	temperature int NOT NULL
+);
+
+#työajan lisääminen
+INSERT INTO testilog(project,action,started,ended,temperature) 
+VALUES('proj21','kahvittelin','1999-01-08 04:05','1999-01-08 06:05',25);
+

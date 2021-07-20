@@ -39,6 +39,7 @@ while True:
     project_name = input("Which project you worked today on?")
     task_explanation = input("What did you do today?")
 
+
     while True:
         startingtime= input("When did you start today? format: YYYYMMDDHHMM")
         if len(startingtime) != 12:
@@ -66,14 +67,12 @@ while True:
     task_ended_hour = endingday[8:10]
     task_ended_minutes = endingday[10:]
 
-    print(endingday)
-    print(task_ended_hour)
-
-    print(startingtime)
-    print(task_ended_hour)
-    print(task_started_year,task_started_month, task_started_day, task_ended_hour,task_started_minutes)
+    
     doIcontinue = input("Do you want to continue? Answer yes or no ").lower()
 
     if doIcontinue == "no":
         break
+
+
+
 
