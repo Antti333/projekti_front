@@ -23,7 +23,7 @@ api_key = "e8b0924d5a0ce89fd664d80238a253c3"
 
 
 
-def get_weather(api_key, lat,lon,timestamp):
+def get_weather(timestamp):
     
     url = f"http://api.openweathermap.org/data/2.5/onecall/timemachine?lat={lat}&lon={lon}&dt={timestamp}&appid={api_key}&units=metric"
 
@@ -34,5 +34,6 @@ def get_weather(api_key, lat,lon,timestamp):
     
     return temp
 
-print(get_weather(api_key,lat,lon,timestamp))
+#testi tulostus 
+#print(get_weather(timestamp))
 
