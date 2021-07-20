@@ -1,4 +1,5 @@
-import curses
+#import curses
+from datetime import datetime
 
 project_name = ""
 task_explanation = ""
@@ -12,6 +13,8 @@ task_ended_month = 0
 task_ended_day = 0
 task_ended_hour = 0
 task_ended_minutes = 0
+
+
 
 """ #draws the window 
 def c_window(stdscr: 'curses._CursesWindow') -> int:
@@ -55,24 +58,30 @@ while True:
             break
     
 
-    task_started_year = startingtime[:4]
-    task_started_month = startingtime[4:6]
-    task_started_day = startingtime[6:8]
-    task_started_hour = startingtime[8:10]
-    task_started_minutes = startingtime[10:]
+    task_started_year = int(startingtime[:4])
+    task_started_month = int(startingtime[4:6])
+    task_started_day = int(startingtime[6:8])
+    task_started_hour = int(startingtime[8:10])
+    task_started_minutes = int(startingtime[10:])
 
-    task_ended_year = endingday[:4]
-    task_ended_month = endingday[4:6]
-    task_ended_day = endingday[6:8]
-    task_ended_hour = endingday[8:10]
-    task_ended_minutes = endingday[10:]
+    task_ended_year = int(endingday[:4])
+    task_ended_month = int(endingday[4:6])
+    task_ended_day = int(endingday[6:8])
+    task_ended_hour = int(endingday[8:10])
+    task_ended_minutes = int(endingday[10:])
 
-    
+  
+
     doIcontinue = input("Do you want to continue? Answer yes or no ").lower()
 
     if doIcontinue == "no":
         break
 
 
+#test for datetime parsing
+start = datetime(task_started_year,task_started_month,task_started_day,task_started_hour,task_ended_minutes)
+end = datetime(task_ended_month,task_ended_month,task_ended_day,task_ended_hour,task_ended_minutes)
 
+print(start)
+print(end)
 

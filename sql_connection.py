@@ -34,7 +34,7 @@ def select(cursor):
 
 
 def insert(cursor, project,action,started,ended):
-    temp_at_end_time = get_weather(ended)
+    temp_at_end_time = 25
     SQL = "INSERT INTO testilog(project,action,started,ended,temperature) VALUES(%s,%s,%s,%s);"
     data = (project,action,started,ended,temp_at_end_time)
     cursor.execute(SQL,data)
@@ -57,6 +57,6 @@ def connect():
 
 ################
 
-if __name__ == '__main__':
-    connect()
+
+connect()
     

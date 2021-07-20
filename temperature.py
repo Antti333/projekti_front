@@ -1,5 +1,6 @@
 import requests
 import datetime
+import main
 
 #
 
@@ -8,7 +9,7 @@ import datetime
 
 #timestamp halutusta pvm:stä ja kelloajasta
 
-timestamp_generated = str(datetime.datetime(2021, 7, 15, 14, 00).timestamp()) #muutetaan str, jotta voidaan split() .0 poistamiseksi
+timestamp_generated = str(main.end.timestamp()) #muutetaan str, jotta voidaan split() .0 poistamiseksi
 timestamp_splitted = timestamp_generated.split(".") 
 timestamp = timestamp_splitted[0] #valitaan haluttu eli listan 1.
 
