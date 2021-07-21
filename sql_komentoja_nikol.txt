@@ -13,3 +13,28 @@ CREATE TABLE testilog (
 INSERT INTO testilog(project,action,started,ended,temperature) 
 VALUES('proj21','kahvittelin','1999-01-08 04:05','1999-01-08 06:05',25);
 
+
+#tämän päivän merkinnät taulukosta
+SELECT * FROM testilog WHERE date(started) = CURRENT_DATE;
+
+#tunnit kaikista päivistä
+SELECT id,project,action, AGE(ended,started) AS difference
+FROM testilog;
+
+#valitaan tietty päivä uuteen taulukkoon
+
+SELECT * INTO TABLE yksipaiva FROM testilog WHERE date(started) = CURRENT_DATE;
+
+#tunnit taulukosta yksipaiva uuteen taulukkoon
+SELECT AGE(ended,started) AS difference INTO TABLE tunnit1
+FROM yksipaiva;
+
+# summataan tunnit taulukosta tunnit1
+SELECT SUM (difference) AS total FROM tunnit1 > tunnit.txt ;
+
+#tallennetaan tunnit
+
+#poistetaan tunnit1 ja yksipaiva taulukko, jotta ei heitä nimierroria seuraava päivänä!
+DROP TABLE tunnit1;
+DROP TABLE yksipaiva;
+
