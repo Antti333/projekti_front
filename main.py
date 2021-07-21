@@ -14,9 +14,9 @@ def user_interface():
         Token.Question: '',
     })
 
-    print("Add your work hours:")
+    print("Input your work hours")
 
-    #testing if user inputs are correct
+    #testing if user inputs are correct (not ready)
     class start_time_validator(Validator):
         def validate(self, document):
             is_good = str(document)
@@ -59,7 +59,7 @@ def user_interface():
     ]
 
     #User inputs to values
-    answers = prompt(questions)
+    answers = prompt(questions, style=style)
     project_name = answers.get('project_name')
     task_explanation = answers.get('task')
     start_time_str = answers.get('start_time')
@@ -77,64 +77,8 @@ def user_interface():
 
 def start():
 
-    #answers = []
     answers = user_interface()
     print(answers)
 
 if __name__ == "__main__":
     start()
-
-#helppokäyttöliittymä
-""" while True:
-
-while True:
-    print("Add your worktime for today")
-    project_name = input("Which project you worked today on?")
-    task_explanation = input("What did you do today?")
-
-
-    while True:
-        start_time_str= input("When did you start today? format: YYYYMMDDHHMM")
-        if len(start_time_str) != 12:
-            print("You did not put the starting time in correct format. Put it as YYYYMMDDHHMM ex. 202112241805")
-        else:
-            break
-
-    while True:
-        end_time_str= input("When did you end today? format: YYYYMMDDHHMM")
-        if len(end_time_str) != 12:
-            print("You did not put the starting time in correct format. Put it as YYYYMMDDHHMM ex. 202112241805")
-        else: 
-            break
-    
-
-    task_started_year = start_time_str[:4]
-    task_started_month = start_time_str[4:6]
-    task_started_day = start_time_str[6:8]
-    task_started_hour = start_time_str[8:10]
-    task_started_minutes = start_time_str[10:]
-
-    task_ended_year = end_time_str[:4]
-    task_ended_month = end_time_str[4:6]
-    task_ended_day = end_time_str[6:8]
-    task_ended_hour = end_time_str[8:10]
-    task_ended_minutes = end_time_str[10:]
-    task_started_year = int(startingtime[:4])
-    task_started_month = int(startingtime[4:6])
-    task_started_day = int(startingtime[6:8])
-    task_started_hour = int(startingtime[8:10])
-    task_started_minutes = int(startingtime[10:])
-
-    task_ended_year = int(endingday[:4])
-    task_ended_month = int(endingday[4:6])
-    task_ended_day = int(endingday[6:8])
-    task_ended_hour = int(endingday[8:10])
-    task_ended_minutes = int(endingday[10:])
-
-  
-
-    doIcontinue = input("Do you want to continue? Answer yes or no ").lower()
-
-    if doIcontinue == "no":
-        break
- """
