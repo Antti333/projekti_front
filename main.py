@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 from __future__ import print_function, unicode_literals
 from PyInquirer import prompt, print_json
 from PyInquirer import Validator, ValidationError
@@ -81,6 +82,12 @@ task_ended_minutes = end_time_str[10:]
 
 
 """ project_name = ""
+=======
+#import curses
+from datetime import datetime
+
+project_name = ""
+>>>>>>> fe6da58553298f1985ca0c5d687e1fca48f9ec7a
 task_explanation = ""
 task_started_year = 0
 task_started_month = 0
@@ -91,12 +98,41 @@ task_ended_year = 0
 task_ended_month = 0
 task_ended_day = 0
 task_ended_hour = 0
+<<<<<<< HEAD
 task_ended_minutes = 0 """
+=======
+task_ended_minutes = 0
+
+
+
+""" #draws the window 
+def c_window(stdscr: 'curses._CursesWindow') -> int:
+    #import time; time.sleep(2)
+    while True:
+        project_name = stdscr.getstr(0,0,20)
+        #rendering phase
+
+    
+    return 0
+
+#starts the program
+def main() -> int: 
+    return curses.wrapper(c_window)
+
+#ends program
+if __name__=='__main__':
+    exit(main()) """
+>>>>>>> fe6da58553298f1985ca0c5d687e1fca48f9ec7a
 
 #2020, 6, 30, 13, 00
 
 #helppokäyttöliittymä
+<<<<<<< HEAD
 """ while True:
+=======
+
+while True:
+>>>>>>> fe6da58553298f1985ca0c5d687e1fca48f9ec7a
     print("Add your worktime for today")
     project_name = input("Which project you worked today on?")
     task_explanation = input("What did you do today?")
@@ -117,6 +153,7 @@ task_ended_minutes = 0 """
             break
     
 
+<<<<<<< HEAD
     task_started_year = start_time_str[:4]
     task_started_month = start_time_str[4:6]
     task_started_day = start_time_str[6:8]
@@ -128,13 +165,34 @@ task_ended_minutes = 0 """
     task_ended_day = end_time_str[6:8]
     task_ended_hour = end_time_str[8:10]
     task_ended_minutes = end_time_str[10:]
+=======
+    task_started_year = int(startingtime[:4])
+    task_started_month = int(startingtime[4:6])
+    task_started_day = int(startingtime[6:8])
+    task_started_hour = int(startingtime[8:10])
+    task_started_minutes = int(startingtime[10:])
 
-    
+    task_ended_year = int(endingday[:4])
+    task_ended_month = int(endingday[4:6])
+    task_ended_day = int(endingday[6:8])
+    task_ended_hour = int(endingday[8:10])
+    task_ended_minutes = int(endingday[10:])
+
+  
+>>>>>>> fe6da58553298f1985ca0c5d687e1fca48f9ec7a
+
     doIcontinue = input("Do you want to continue? Answer yes or no ").lower()
 
     if doIcontinue == "no":
         break
  """
+
+#test for datetime format parsing
+start = datetime(task_started_year,task_started_month,task_started_day,task_started_hour,task_ended_minutes)
+end = datetime(task_ended_year,task_ended_month,task_ended_day,task_ended_hour,task_ended_minutes)
+
+print(start)
+print(end)
 
 
 

@@ -1,5 +1,6 @@
 import requests
 
+
 #kun haetaan mennyttä säätä, pitänee antaa paikkakunnan koordinaatit, ei nimeä, Kaisaniemi lat = 60.2, lon = 24.9
 
 #timestamp halutusta pvm:stä ja kelloajasta
