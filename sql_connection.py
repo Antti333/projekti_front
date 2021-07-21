@@ -33,10 +33,38 @@ def select(cursor):
         row = cursor.fetchone()
 
 
+def select_one_id(cursor,id):
+    SQL = 'SELECT * FROM testilog WHERE id = %s;'
+    data = id
+    cursor.execute(SQL,data)
+    colnames = [desc[0] for desc in cursor.description]
+    print(colnames)
+    row = cursor.fetchone()
+    while row is not None:
+        print(row)
+        row = cursor.fetchone()
+
+
+def get_start_time(cursor,date):
+    SQL = 'SELECT * FROM testilog WHERE started = %s;'
+    cursor.execute(SQL,date)
+    colnames = [desc[0] for desc in cursor.description]
+    print(colnames)
+    row = cursor.fetchone()
+    while row is not None:
+        print(row)
+        row = cursor.fetchone()
+
+
+
+def get_end_time(cursor,date):
+    pass
+
+
 def insert(cursor, project,action,started,ended):
-    temp_at_end_time = 25
-    SQL = "INSERT INTO testilog(project,action,started,ended,temperature) VALUES(%s,%s,%s,%s);"
-    data = (project,action,started,ended,temp_at_end_time)
+    #temp_at_end_time = 25
+    SQL = "INSERT INTO testilog(project,action,started,ended,temperature) VALUES(%s,%s,%s,%s,25);"
+    data = (project,action,started,ended)
     cursor.execute(SQL,data)
 
 
@@ -48,9 +76,22 @@ def connect():
     con = psycopg2.connect(**config())
     cursor = con.cursor()  
     
-    select(cursor)
-    insert(cursor,'projekti','kahvittelin','1999-01-08 04:05','2021-7-15 15:00')
-      
+    get_start_time(cursor,'2021-07-21 08:05')
+    
+    #datan latausta
+
+    #insert(cursor,'projekti2','vessassa','2021-07-21 08:05','2021-7-21 15:00')
+    #insert(cursor,'projekti2','lounas','2021-07-20 08:05','2021-7-20 15:00')
+    #insert(cursor,'projekti3','lapsi sairaana','2021-07-19 08:05','2021-7-21 16:00')
+    #insert(cursor,'projekti3','sairaana','2021-07-20 08:05','2021-7-20 15:00')
+
+    #select_one_id(cursor,'4')
+    
+    #select(cursor)
+    con.commit()
+
+
+
     if con is not None:
         con.close()
 

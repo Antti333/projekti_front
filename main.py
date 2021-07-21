@@ -37,6 +37,7 @@ if __name__=='__main__':
 #2020, 6, 30, 13, 00
 
 #helppokäyttöliittymä
+
 while True:
     print("Add your worktime for today")
     project_name = input("Which project you worked today on?")
@@ -78,10 +79,12 @@ while True:
         break
 
 
-#test for datetime parsing
+#test for datetime format parsing
 start = datetime(task_started_year,task_started_month,task_started_day,task_started_hour,task_ended_minutes)
-end = datetime(task_ended_month,task_ended_month,task_ended_day,task_ended_hour,task_ended_minutes)
+end = datetime(task_ended_year,task_ended_month,task_ended_day,task_ended_hour,task_ended_minutes)
 
 print(start)
 print(end)
+
+
 

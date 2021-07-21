@@ -9,9 +9,9 @@ import main
 
 #timestamp halutusta pvm:stä ja kelloajasta
 
-timestamp_generated = str(main.end.timestamp()) #muutetaan str, jotta voidaan split() .0 poistamiseksi
-timestamp_splitted = timestamp_generated.split(".") 
-timestamp = timestamp_splitted[0] #valitaan haluttu eli listan 1.
+#timestamp_generated = str(main.end.timestamp()) #muutetaan str, jotta voidaan split() .0 poistamiseksi
+#timestamp_splitted = timestamp_generated.split(".") 
+#timestamp = timestamp_splitted[0] #valitaan haluttu eli listan 1.
 
 #muuttujat tähän
 
@@ -20,7 +20,7 @@ lon = 24.9
 api_key = "e8b0924d5a0ce89fd664d80238a253c3"
 
 #testi timestamp devaukseen
-#timestamp = 1626480000
+timestamp = 1626480000
 
 
 
