@@ -1,4 +1,6 @@
+from main import start
 import psycopg2
+from main import user_interface
 
 from configparser import ConfigParser, Error
 
@@ -76,7 +78,16 @@ def connect():
     con = psycopg2.connect(**config())
     cursor = con.cursor()  
     
-    get_start_time(cursor,'2021-07-21 08:05')
+    #get_start_time(cursor,'2021-07-21 08:05')
+
+    while True:
+
+        list_of_values = user_interface()
+        insert(cursor,list_of_values[0],list_of_values[1],list_of_values[2],list_of_values[3])
+        con.commit()
+
+        if list_of_values[4] == "no":
+           break
     
     #datan latausta
 
@@ -88,9 +99,6 @@ def connect():
     #select_one_id(cursor,'4')
     
     #select(cursor)
-    con.commit()
-
-
 
     if con is not None:
         con.close()
