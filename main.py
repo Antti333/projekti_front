@@ -21,12 +21,12 @@ def user_interface():
     #testing if user inputs are correct (not ready)
     class start_time_validator(Validator):
         def validate(self, document):
-            if document.text == 0:
+            if len(document.text) == 12:
                 None
             else:
                 raise ValidationError(
                     print("please input in correct format"),
-                    cursor_position=len(document.text) #move the cursor to empty space 
+                    #cursor_position=len(document.text) #move the cursor to empty space 
                 )
 
 
@@ -76,5 +76,6 @@ def user_interface():
     return [project_name,task_explanation,start,end,continue_info]
 
 if __name__ == "__main__":
-    user_interface()
+    #If you want to test this part of the code then can test here 
+    # user_interface()
     None
