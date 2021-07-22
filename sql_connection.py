@@ -1,4 +1,3 @@
-from main import start
 import psycopg2
 from main import user_interface
 
@@ -81,7 +80,7 @@ def connect():
     #get_start_time(cursor,'2021-07-21 08:05')
 
     while True:
-
+        
         list_of_values = user_interface()
         insert(cursor,list_of_values[0],list_of_values[1],list_of_values[2],list_of_values[3])
         con.commit()

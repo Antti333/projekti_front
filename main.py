@@ -1,9 +1,11 @@
 from __future__ import print_function, unicode_literals
+from re import findall
 from PyInquirer import prompt, print_json
 from PyInquirer import Validator, ValidationError
 from PyInquirer import style_from_dict, Token, prompt
 import datetime
 from datetime import datetime
+import regex
 
 def user_interface():
     style = style_from_dict({
@@ -19,11 +21,12 @@ def user_interface():
     #testing if user inputs are correct (not ready)
     class start_time_validator(Validator):
         def validate(self, document):
-            is_good = str(document)
-            if not is_good:
+            if len(document.text) == 12:
+                None
+            else:
                 raise ValidationError(
-                    print("please input in correct format ex. 202107141555"),
-                    cursor_position=len(document.text) #move the cursor to empty space 
+                    print("please input in correct format"),
+                    #cursor_position=len(document.text) #move the cursor to empty space 
                 )
 
 
@@ -42,8 +45,8 @@ def user_interface():
         {
             'type': 'input',
             'name': 'start_time',
-            'message': 'Enter start time(yyyy-mm-dd hh:mm):'
-            #'validate': start_time_validator
+            'message': 'Enter start time(yyyy-mm-dd hh:mm):',
+            'validate': start_time_validator
         },
         {
             'type': 'input',
@@ -60,25 +63,19 @@ def user_interface():
 
     #User inputs to values
     answers = prompt(questions, style=style)
+    
     project_name = answers.get('project_name')
     task_explanation = answers.get('task')
     start_time_str = answers.get('start_time')
     end_time_str = answers.get('end_time')
     continue_info = answers.get('continue')
 
-    #printing values to user 
-    #print(project_name, task_explanation, start_time_str, end_time_str, continue_info)
-
-    #test for datetime format parsing
     start = datetime.strptime(start_time_str, "%Y-%m-%d %H:%M")
     end = datetime.strptime(end_time_str, "%Y-%m-%d %H:%M")
 
     return [project_name,task_explanation,start,end,continue_info]
 
-def start():
-
-    answers = user_interface()
-    print(answers)
-
 if __name__ == "__main__":
-    start()
+    #If you want to test this part of the code then can test here 
+    # user_interface()
+    None
